@@ -2,16 +2,22 @@ module.exports = function towelSort(matrix) {
 
   let towelMatrix = [];
 
-  for (let i = 0; i < matrix.length; i += 1) {
+  if (!matrix) {
+    return [];
+  } else {
 
-    if (!i % 2) {
-      matrix[i].reverse();
+    for (let i = 0; i < matrix.length; i += 1) {
+
+      if (i % 2) {
+        matrix[i].reverse();
+      }
+
+      towelMatrix = towelMatrix.concat(matrix[i]);
+
     }
 
-    towelMatrix = towelMatrix + matrix[i];
+    return towelMatrix;
 
   }
-
-  return towelMatrix;
 
 }
